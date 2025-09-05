@@ -14,3 +14,4 @@ pyttsx3
 vosk
 sounddevice
 python-multipart
+torchvision
