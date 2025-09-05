@@ -13,9 +13,13 @@ import torchvision.transforms as transforms
 from .recommendation import get_recommendation  # Your recommendations module
 from gtts import gTTS
 
-# Absolute paths - update if needed
-MODEL_PATH = r'C:\Users\adhik\OneDrive\Desktop\pest_disease_detection\models\saved_models\plant_disease_classifier.pth'
-CLASS_NAMES_PATH = r'C:\Users\adhik\OneDrive\Desktop\pest_disease_detection\data\processed\train'
+# Base directory of the project (adjust if this code is inside src/)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# This points to the parent folder of 'src', i.e., 'pest_disease_detection' root
+
+MODEL_PATH = os.path.join(BASE_DIR, 'models', 'saved_models', 'plant_disease_classifier.pth')
+CLASS_NAMES_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'train')
+
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
