@@ -1,0 +1,33 @@
+# Python cache and temp files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+temp_files/
+*.tmp
+
+# Model checkpoints (optional)
+*.h5
+*.ckpt
+
+# Data files (optional)
+data/raw_images/
+data/processed/
+*.csv
+*.xlsx
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# IDE/editor meta
+.vscode/
+.idea/
+*.swp
+
+# Audio/text model artifacts
+tts_*.wav
+*.mp3
+
+# Ignore frontend HTML file
+index.html

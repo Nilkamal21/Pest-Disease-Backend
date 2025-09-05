@@ -1,0 +1,13 @@
+torch
+opencv-python
+numpy
+pandas
+scikit-learn
+transformers
+fasttext
+Pillow
+tqdm
+onnxruntime
+pyttsx3
+vosk
+sounddevice
