@@ -10,7 +10,7 @@ import torch
 from torchvision.models import mobilenet_v2
 import torch.nn as nn
 import torchvision.transforms as transforms
-from recommendation import get_recommendation  # Your recommendations module
+from .recommendation import get_recommendation  # Your recommendations module
 from gtts import gTTS
 
 # Absolute paths - update if needed
