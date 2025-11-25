@@ -88,7 +88,8 @@ async def predict(
         shutil.copyfileobj(image.file, buffer)
 
     # Predict disease
-    predicted_class = predict_disease(image_path, model)
+    predicted_class, confidence = predict_disease(image_path, model)
+
 
     if confidence < 0.7:
         return JSONResponse(content={
