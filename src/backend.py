@@ -96,7 +96,7 @@ async def predict(
             "recognized_text": user_text or "",
             "predicted_class": None,
             "message": "Pest not detected with sufficient confidence. Please upload another image.",
-            "confidence": confidence
+            "recommendation": {"advice": ""}
         })
         
     # Get recommendation for predicted disease and language
