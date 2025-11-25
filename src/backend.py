@@ -62,8 +62,10 @@ def predict_disease(image_path, model):
     input_tensor = transform(image).unsqueeze(0).to(DEVICE)
     with torch.no_grad():
         outputs = model(input_tensor)
-    _, predicted_idx = torch.max(outputs, 1)
-    return class_names[predicted_idx.item()]
+        exp_outputs = torch.exp(outputs)
+        probabilities = exp_outputs / exp_outputs.sum(dim=1, keepdim=True)
+    conf, predicted_idx = torch.max(probabilities, 1)
+    return class_names[predicted_idx.item()], conf.item()
 
 def generate_tts(text: str, lang: str) -> str:
     # gTTS does not support Punjabi ('pa'), fallback to Hindi ('hi')
@@ -88,6 +90,14 @@ async def predict(
     # Predict disease
     predicted_class = predict_disease(image_path, model)
 
+    if confidence < 0.7:
+        return JSONResponse(content={
+            "recognized_text": user_text or "",
+            "predicted_class": None,
+            "message": "Pest not detected with sufficient confidence. Please upload another image.",
+            "confidence": confidence
+        })
+        
     # Get recommendation for predicted disease and language
     recommendation = get_recommendation(predicted_class, language)
 
