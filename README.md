@@ -1,3 +1,16 @@
+---
+title: Pest Disease Detection Backend
+emoji: 🌱
+colorFrom: green
+colorTo: blue
+sdk: docker
+sdk_version: "0.0.1"
+app_file: Dockerfile
+pinned: false
+---
+
+
+
 # Pest Disease Detection Backend
 
 This repository contains the backend code for the Pest Disease Detection system. It includes the API for uploading crop images, running disease prediction models, and providing recommendations.
